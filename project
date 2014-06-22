@@ -1,0 +1,15 @@
+test1<-read.table("..\UCI HAR Dataset\UCI HAR Dataset\test\subject_test",header=TRUE,sep = " ")
+test2<-read.table("..\UCI HAR Dataset\UCI HAR Dataset\test\X_test",header=TRUE,sep = " ")
+test3<-read.table("..\UCI HAR Dataset\UCI HAR Dataset\test\y_test",header=TRUE,sep = " ")
+test<-merge(test1,test2)
+test<-merge(test,test3)
+
+train1<-read.table("..\UCI HAR Dataset\UCI HAR Dataset\train\subject_test",header=TRUE,sep = " ")
+train2<-read.table("..\UCI HAR Dataset\UCI HAR Dataset\train\X_test",header=TRUE,sep = " ")
+train3<-read.table("..\UCI HAR Dataset\UCI HAR Dataset\train\y_test",header=TRUE,sep = " ")
+train<-merge(train1,train2)
+test<-merge(train,train3)
+
+data<-merge(test,train)
+
+write.table(data,file="project",row.names=TRUE,col.names=TRUE)
